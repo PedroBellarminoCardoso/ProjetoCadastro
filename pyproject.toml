@@ -1,0 +1,26 @@
+[project]
+name = "projeto-cadastro"
+version = "0.1.0"
+description = "Automacao para cadastro de funcionarios usando Requests"
+authors = [
+    { name = "Pedro Bellarmino Cardoso" }
+]
+readme = "README.md"
+requires-python = ">=3.14,<3.15"
+dependencies = [
+    "requests>=2.32,<3.0",
+    "python-dotenv>=1.2.4,<2.0.0",
+    "pandas>=2.2",
+    "openpyxl>=3.1",
+    "playwright>=1.50"
+]
+
+[tool.poetry]
+packages = [{ include = "cadastro_automatico", from = "src" }]
+
+[tool.poetry.scripts]
+main = "cadastro_automatico.main:main"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
