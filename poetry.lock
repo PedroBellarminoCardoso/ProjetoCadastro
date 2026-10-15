@@ -482,7 +482,7 @@ files = [
 ]
 
 [package.dependencies]
-numpy = {version = ">=2.3.3", markers = "python_version >= \"3.14\""}
+numpy = {version = ">=1.26.0", markers = "python_version < \"3.14\""}
 python-dateutil = ">=2.8.2"
 tzdata = {version = "*", markers = "sys_platform == \"win32\" or sys_platform == \"emscripten\""}
 
@@ -666,5 +666,5 @@ zstd = ["backports-zstd (>=1.0.0) ; python_version < \"3.14\""]
 
 [metadata]
 lock-version = "2.1"
-python-versions = ">=3.14,<3.15"
-content-hash = "27bc9fd9038cb7fed0b20db4796cf044abc4853388f0dbd8d6def50ce5bf0e63"
+python-versions = ">=3.12,<3.13"
+content-hash = "7c24ba3e9b6d92a1020e47aa0b7c657c5c10cff9eb6cb5fe14b2b5ab8855317a"
