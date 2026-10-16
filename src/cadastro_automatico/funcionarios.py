@@ -1,19 +1,19 @@
 from pathlib import Path
 
-import pandas as pd
+import pandas as pd #Bibloteca para ler a planilha do Excel
 
 
 ROOT = Path(__file__).resolve().parents[2]
-ARQUIVO_EXCEL = ROOT / "data" / "Funcionarios.xlsx"
+ARQUIVO_EXCEL = ROOT / "data" / "Funcionarios.xlsx" #Vai na pasta data e pega a planilha Funcionarios
 
 
-def ler_funcionarios() -> list[dict]:
+def ler_funcionarios() -> list[dict]: #Função para ler os Funcionarios
     if not ARQUIVO_EXCEL.exists():
         raise FileNotFoundError(
-            f"Planilha não encontrada: {ARQUIVO_EXCEL}"
+            f"Planilha não encontrada: {ARQUIVO_EXCEL}" #Caso não ache exibe a mensagem de erro
         )
 
-    df = pd.read_excel(ARQUIVO_EXCEL)
+    df = pd.read_excel(ARQUIVO_EXCEL) #df le o pandas com o arquivo excel
     df.columns = df.columns.astype(str).str.strip()
 
     print("Colunas encontradas no Excel:", df.columns.tolist())
