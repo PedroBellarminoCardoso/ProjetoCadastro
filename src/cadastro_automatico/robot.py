@@ -320,8 +320,27 @@ def executar(idt: str):
     finally:
         session.close()
 
+    
     caminho = salvar_relatorio(resultados, idt)
+
+    # Conta os cadastros realizados com sucesso
+    usuarios_inseridos = sum(
+        1 for resultado in resultados
+        if resultado["Status"] == "SUCESSO"
+    )
+
+    # Conta os cadastros que falharam
+    usuarios_com_erro = sum(
+        1 for resultado in resultados
+        if resultado["Status"] == "ERRO"
+    )
+
+    # Exibe o resumo final da automação
     print(f"\nRelatório salvo em: {caminho}")
+    print("       AUTOMAÇÃO FINALIZADA!")
+    print(f"Usuários cadastrados: {usuarios_inseridos}")
+    print(f"Cadastros com erro:   {usuarios_com_erro}")
+    print(f"Total processado:     {len(resultados)}")
 
 
 class Robot:
